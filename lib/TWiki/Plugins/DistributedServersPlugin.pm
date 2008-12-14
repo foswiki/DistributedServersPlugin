@@ -27,7 +27,7 @@ require TWiki::Plugins;    # For the API version
 
 use vars
   qw( $VERSION $RELEASE $SHORTDESCRIPTION $debug $pluginName $NO_PREFS_IN_TOPIC $pubCDNIndex);
-$VERSION           = '$Rev: 767 (18 Nov 2008) $';
+$VERSION           = '$Rev$';
 $RELEASE           = 'TWiki-4.2';
 $SHORTDESCRIPTION  = 'CDN and loadbalancing Wiki support';
 $NO_PREFS_IN_TOPIC = 1;
