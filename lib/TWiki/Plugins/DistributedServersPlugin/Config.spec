@@ -5,20 +5,20 @@
 # this is most useful for skin files - and should be avoided for any Web's containing 
 # secured attachments
 $TWiki::cfg{Plugins}{DistributedServersPlugin}{CDNMap} = {
-    'http://t42p/trunk/pub/TWiki/' => [
-        'http://starfish.nextwiki.org/nextwiki.org/pub/TWiki/'
+    'http://t42p/trunk/pub/System/' => [
+        'http://starfish.foswiki.org/foswiki.org/pub/System/'
     ],
-    'http://twikifork.org/pub/TWiki/' => [
-        'http://starfish.nextwiki.org/nextwiki.org/pub/TWiki/'
+    'http://twikifork.org/pub/System/' => [
+        'http://starfish.foswiki.org/foswiki.org/pub/System/'
     ],
-    'http://www.twikifork.org/pub/TWiki/' => [
-        'http://starfish.nextwiki.org/nextwiki.org/pub/TWiki/'
+    'http://www.twikifork.org/pub/System/' => [
+        'http://starfish.foswiki.org/foswiki.org/pub/System/'
     ],
-    'http://nextwiki.org/pub/TWiki/' => [
-        'http://starfish.nextwiki.org/nextwiki.org/pub/TWiki/'
+    'http://foswiki.org/pub/System/' => [
+        'http://starfish.foswiki.org/foswiki.org/pub/System/'
     ],
-    'http://www.nextwiki.org/pub/TWiki/' => [
-        'http://starfish.nextwiki.org/nextwiki.org/pub/TWiki/'
+    'http://www.foswiki.org/pub/System/' => [
+        'http://starfish.foswiki.org/foswiki.org/pub/System/'
     ]
 };
 

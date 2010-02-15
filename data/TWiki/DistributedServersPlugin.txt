@@ -14,13 +14,13 @@ This plugin adds
    3 (future) distributed Topic rendering
 
 
-For http://nextwiki.org, it delegates all TWiki web pub requests to http://starfish.nextwiki.org/nextwiki.org/pub/TWiki/. 
-To help make NextWiki.org as fast as possible, consider mirroring the files from there and emailing the http://twikifork.org/Community/InfrastructureTaskTeam to get your server added to our Content distribution network.
+For http://foswiki.org, it delegates all System web pub requests to http://starfish.foswiki.org/foswiki.org/pub/System/. 
+To help make foswiki.org as fast as possible, consider mirroring the files from there and emailing the http://foswiki.org/Community/InfrastructureTaskTeam to get your server added to our Content distribution network.
 
 ---++ Installation Instructions
 
 you will need to sync the attachments in the webs that you are CDN'ing - one way is to use rsync and crontab:
-   * =*/5 * * * * /usr/local/bin/rsync -ravl /home/twikifork.org/pub/TWiki -e "ssh -i /root/.ssh/starfish.dsa" nextwiki@fosiki.nextwiki.org:/home/nextwiki/starfish.nextwiki.org/nextwiki.org/pub/ > /root/starfish.log=
+   * =*/5 * * * * /usr/local/bin/rsync -ravl /home/foswiki.org/pub/System -e "ssh -i /root/.ssh/starfish.dsa" foswiki@fosiki.foswiki.org:/home/foswiki/starfish.foswiki.org/foswiki.org/pub/ > /root/starfish.log=
 
 %$INSTALL_INSTRUCTIONS%
 
@@ -33,10 +33,9 @@ you will need to sync the attachments in the webs that you are CDN'ing - one way
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
 |  Nov2008: | initial simple release for nextwiki.org use |
 |  Dependencies: | %$DEPENDENCIES% |
-|  Plugin Home: | http://nextwiki.org/bin/view/Extensions/DistributedServersPlugin |
-|  Feedback: | http://nextwiki.org/bin/view/Extensions/DistributedServersPluginDev |
-|  Appraisal: | http://nextwiki.org/bin/view/Extensions/DistributedServersPluginAppraisal |
+|  Plugin Home: | http://foswiki.org/Extensions/%TOPIC% |
+|  Support: | http://foswiki.org/Support/%TOPIC% |
 
-__Related Topics:__ %SYSTEMWEB%.TWikiPlugins, %SYSTEMWEB%.DeveloperDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory, %SYSTEMWEB%.DefaultPreferences, %USERSWEB%.SitePreferences
+__Related Topics:__ [[%SYSTEMWEB%.Plugins]], %SYSTEMWEB%.DeveloperDocumentationCategory, %SYSTEMWEB%.AdminDocumentationCategory, %SYSTEMWEB%.DefaultPreferences, %USERSWEB%.SitePreferences
 
-<!-- Do _not_ attempt to edit this topic; it is auto-generated. Please add comments/questions/remarks to the feedback topic on twiki.org instead. -->
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. Please add comments/questions/remarks to the feedback topic on foswiki.org instead. -->

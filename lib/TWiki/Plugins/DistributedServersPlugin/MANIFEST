@@ -1,4 +1,4 @@
 # Release manifest for DistributedServersPlugin
-data/TWiki/DistributedServersPlugin.txt 0644 Documentation
-lib/TWiki/Plugins/DistributedServersPlugin.pm 0644 Perl module
-lib/TWiki/Plugins/DistributedServersPlugin/Config.spec
+data/Foswiki/DistributedServersPlugin.txt 0644 Documentation
+lib/Foswiki/Plugins/DistributedServersPlugin.pm 0644 Perl module
+lib/Foswiki/Plugins/DistributedServersPlugin/Config.spec

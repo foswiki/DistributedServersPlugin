@@ -13,22 +13,22 @@
 
 =pod
 
----+ package TWiki::Plugins::DistributedServersPlugin
+---+ package Foswiki::Plugins::DistributedServersPlugin
 
 enable distributed servers to leverage Browser speedups from using a CDN.
 
 =cut
 
-package TWiki::Plugins::DistributedServersPlugin;
+package Foswiki::Plugins::DistributedServersPlugin;
 
 use strict;
-require TWiki::Func;       # The plugins API
-require TWiki::Plugins;    # For the API version
+require Foswiki::Func;       # The plugins API
+require Foswiki::Plugins;    # For the API version
 
 use vars
   qw( $VERSION $RELEASE $SHORTDESCRIPTION $debug $pluginName $NO_PREFS_IN_TOPIC $pubCDNIndex);
 $VERSION           = '$Rev$';
-$RELEASE           = 'TWiki-4.2';
+$RELEASE           = 'Foswiki-4.2';
 $SHORTDESCRIPTION  = 'CDN and loadbalancing Wiki support';
 $NO_PREFS_IN_TOPIC = 1;
 $pluginName        = 'DistributedServersPlugin';
@@ -37,14 +37,14 @@ sub initPlugin {
     my ( $topic, $web, $user, $installWeb ) = @_;
 
     # check for Plugins.pm versions
-    if ( $TWiki::Plugins::VERSION < 1.026 ) {
-        TWiki::Func::writeWarning(
+    if ( $Foswiki::Plugins::VERSION < 1 ) {
+        Foswiki::Func::writeWarning(
             "Version mismatch between $pluginName and Plugins.pm");
         return 0;
     }
 
     #force all pub URL's to be absolute.
-    $TWiki::cfg{PubUrlPath} = $TWiki::Plugins::SESSION->getPubUrl(1);
+    $Foswiki::cfg{PubUrlPath} = $Foswiki::Plugins::SESSION->getPubUrl(1);
 
     return 1;
 }
@@ -64,11 +64,11 @@ sub postRenderingHandler {
     #my $text = shift;
 
     # remove duplicated hostPath's
-    my $hostUrl = TWiki::Func::getUrlHost( );
+    my $hostUrl = Foswiki::Func::getUrlHost( );
     $_[0] =~ s|($hostUrl)($hostUrl)|$1|g;
 
-    my $pubCDNMap = $TWiki::cfg{Plugins}{DistributedServersPlugin}{CDNMap};
-    #print STDERR  $TWiki::cfg{Plugins}{DistributedServersPlugin}{CDNMap};
+    my $pubCDNMap = $Foswiki::cfg{Plugins}{DistributedServersPlugin}{CDNMap};
+    #print STDERR  $Foswiki::cfg{Plugins}{DistributedServersPlugin}{CDNMap};
     foreach my $from ( keys(%{$pubCDNMap}) ) {
         #print STDERR "cdn? $from";
         $_[0] =~ s|($from)|pubCDN($1)|ge;
@@ -77,7 +77,7 @@ sub postRenderingHandler {
 
 sub pubCDN {
     my $fromUrl = shift;
-    my $pubCDNMap = $TWiki::cfg{Plugins}{DistributedServersPlugin}{CDNMap};
+    my $pubCDNMap = $Foswiki::cfg{Plugins}{DistributedServersPlugin}{CDNMap};
     my $url     = $pubCDNMap->{$fromUrl}[ $pubCDNIndex++ ];
     $pubCDNIndex = 0 if ( $pubCDNIndex >= scalar( @{ $pubCDNMap->{$fromUrl} } ) );
 
