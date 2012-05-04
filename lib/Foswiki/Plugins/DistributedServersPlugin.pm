@@ -60,26 +60,30 @@ because PUBURL tags are contextless, we are forced to post process the HTML
 =cut
 
 sub postRenderingHandler {
+
     # do not uncomment, use $_[0], $_[1]... instead
     #my $text = shift;
 
     # remove duplicated hostPath's
-    my $hostUrl = Foswiki::Func::getUrlHost( );
+    my $hostUrl = Foswiki::Func::getUrlHost();
     $_[0] =~ s|($hostUrl)($hostUrl)|$1|g;
 
     my $pubCDNMap = $Foswiki::cfg{Plugins}{DistributedServersPlugin}{CDNMap};
+
     #print STDERR  $Foswiki::cfg{Plugins}{DistributedServersPlugin}{CDNMap};
-    foreach my $from ( keys(%{$pubCDNMap}) ) {
+    foreach my $from ( keys( %{$pubCDNMap} ) ) {
+
         #print STDERR "cdn? $from";
         $_[0] =~ s|($from)|pubCDN($1)|ge;
     }
 }
 
 sub pubCDN {
-    my $fromUrl = shift;
+    my $fromUrl   = shift;
     my $pubCDNMap = $Foswiki::cfg{Plugins}{DistributedServersPlugin}{CDNMap};
-    my $url     = $pubCDNMap->{$fromUrl}[ $pubCDNIndex++ ];
-    $pubCDNIndex = 0 if ( $pubCDNIndex >= scalar( @{ $pubCDNMap->{$fromUrl} } ) );
+    my $url       = $pubCDNMap->{$fromUrl}[ $pubCDNIndex++ ];
+    $pubCDNIndex = 0
+      if ( $pubCDNIndex >= scalar( @{ $pubCDNMap->{$fromUrl} } ) );
 
     return $url;
 }
